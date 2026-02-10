@@ -69,9 +69,9 @@ export const Auth = ({ children }) => {
   };
 
   const checkAuthentication = () => {
-    setIsAuthenticated(true)
-    // const signInURL = `${apiBaseURL.staging}/api/v2/saml/login`;
-    // popupCenter({ url:signInURL, title: "Single SignOn", w: 400, h: 400 });
+    // setIsAuthenticated(true)
+    const signInURL = `${apiBaseURL.staging}/api/v2/saml/login`;
+    popupCenter({ url: signInURL, title: "Single SignOn", w: 400, h: 400 });
   }
 
   return (
