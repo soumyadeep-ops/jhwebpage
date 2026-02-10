@@ -34,18 +34,35 @@ export default function App() {
 
       {/* Page content pushed below fixed navbar */}
       <main className="pt-20">
-        <HeroSection />
+        <section id="home">
+          <HeroSection />
+        </section>
+
         <UnderstandingDAPSection />
         <AlumniSection />
         <ImpactSection />
-        <ExtensionsSection />
-        <EmbedScriptGeneratorSection />
+
+        <section id="extensions">
+          <ExtensionsSection />
+        </section>
+
+        <section id="embed">
+          <EmbedScriptGeneratorSection />
+        </section>
+
         <TeamsSection />
         <ApplicationsSection />
         <KnowledgeArticlesSection />
         <AutomationAndPRASection />
-        <CertificationSection />
-        <FaqSection />
+
+        <section id="certified">
+          <CertificationSection />
+        </section>
+
+        <section id="faqs">
+          <FaqSection />
+        </section>
+
         <ZipsterCommunitySection />
         <Footer />
 
@@ -77,6 +94,13 @@ function Navbar() {
           />
         </a>
 
+        <nav className="hidden md:flex items-center gap-8 text-sm text-white/70">
+          <a href="#home" className="hover:text-white">Home</a>
+          <a href="#extensions" className="hover:text-white">Get Extensions</a>
+          <a href="#embed" className="hover:text-white">Embed Script Generator</a>
+          <a href="#certified" className="hover:text-white">Get Certified</a>
+          <a href="#faqs" className="hover:text-white">FAQs</a>
+        </nav>
 
 
         <a
