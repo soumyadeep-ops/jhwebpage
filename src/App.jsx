@@ -27,13 +27,6 @@ import sageLogo from "./assets/sage.png";
 import inforLogo from "./assets/infor.png";
 
 export default function App() {
-  const [signedIn, setSignedIn] = useState(false);
-
-  // STEP: Show Sign-In screen first
-  if (!signedIn) {
-    return <SignInPage onSignIn={() => setSignedIn(true)} />;
-  }
-
   // STEP: Once clicked, show your real website
   return (
     <div className="min-h-screen bg-black text-white">
