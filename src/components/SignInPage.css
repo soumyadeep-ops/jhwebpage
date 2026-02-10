@@ -1,0 +1,207 @@
+/* Full screen background */
+.signin-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+/* Vignette + dark overlay (keeps background image visible but controlled) */
+.signin-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(1200px 600px at 50% 35%, rgba(124, 58, 237, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 20% 20%, rgba(158, 92, 255, 0.14), transparent 55%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.82));
+    pointer-events: none;
+}
+
+/* Purple bloom behind the card */
+.signin-bloom {
+    position: absolute;
+    width: 900px;
+    height: 500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -55%);
+    background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.28), transparent 60%);
+    filter: blur(30px);
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+/* Subtle noise to avoid “flat” gradients */
+.signin-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+    opacity: 0.22;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+
+/* Center container */
+.signin-shell {
+    position: relative;
+    z-index: 2;
+    width: min(720px, 92vw);
+    padding: 24px;
+}
+
+/* Card */
+.signin-card {
+    position: relative;
+    border-radius: 22px;
+    padding: 60px 20px;
+    background: rgba(15, 15, 18, 0.62);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+/* Gradient border “sheen” */
+.signin-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 22px;
+    padding: 1px;
+    background: linear-gradient(135deg,
+            rgba(124, 58, 237, 0.55),
+            rgba(255, 255, 255, 0.12),
+            rgba(158, 92, 255, 0.35));
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+.signin-top {
+    text-align: center;
+    padding-top: 4px;
+}
+
+/* Logos row */
+.signin-logos {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    margin-bottom: 20px;
+}
+
+.signin-logo {
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
+}
+
+.signin-logo.zip {
+    height: 34px;
+    width: auto;
+}
+
+.signin-logo.jh {
+    height: 38px;
+    width: auto;
+}
+
+/* Divider pill (looks cleaner than “×”) */
+.logo-divider {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.06);
+    opacity: 0.9;
+}
+
+/* Title + subtitle */
+.signin-title {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 750;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.signin-subtitle {
+    margin: 10px auto 0;
+    max-width: 520px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+/* Button */
+.signin-btn {
+    margin: 18px auto 0;
+    width: min(360px, 100%);
+    display: block;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(90deg, #7B5CFF, #9E5CFF);
+    box-shadow:
+        0 18px 35px rgba(124, 58, 237, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+    transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.signin-btn:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        0 22px 45px rgba(124, 58, 237, 0.34),
+        0 0 0 1px rgba(255, 255, 255, 0.16) inset;
+    filter: saturate(1.05);
+}
+
+.signin-btn:active {
+    transform: translateY(0px);
+}
+
+.signin-footnote {
+    margin: 14px auto 0;
+    max-width: 520px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+    .signin-title {
+        font-size: 22px;
+    }
+
+    .signin-subtitle {
+        font-size: 13px;
+    }
+
+    .signin-card {
+        padding: 44px 48px;
+    }
+}
