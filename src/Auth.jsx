@@ -1,13 +1,38 @@
 import { useEffect, useState } from "react";
 import SignInPage from "./components/SignInPage";
+import Config from "./config";
 
 export const Auth = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  const isAuthExpired = (authDataString) => {
+    if (!authDataString) {
+      return true; // No auth data means expired/not authenticated
+    }
+
+    try {
+      const { timestamp } = JSON.parse(authDataString);
+      const now = Date.now();
+      const twoHoursInMs = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
+      
+      // Check if authentication is still valid (within 2 hours)
+      return now - timestamp >= twoHoursInMs;
+    } catch (error) {
+      // If parsing fails, treat as expired/invalid
+      return true;
+    }
+  };
+
   useEffect(() => {
-    const isSAMLLogin = localStorage.getItem("isSAMLLogin");
-    if (isSAMLLogin) {
-      setIsAuthenticated(true);
+    const authData = localStorage.getItem("isSAMLLogin");
+    if (authData) {
+      if (isAuthExpired(authData)) {
+        // Expired - clear localStorage and require re-authentication
+        localStorage.removeItem("isSAMLLogin");
+        setIsAuthenticated(false);
+      } else {
+        setIsAuthenticated(true);
+      }
     }
   }, []);
 
@@ -15,18 +40,16 @@ export const Auth = ({ children }) => {
     window.addEventListener("message", (event) => {
       const response = event.data;
       if (response.zipaction.action === "authentication") {
-        localStorage.setItem("isSAMLLogin", true);
+        console.log({response});
+        // Store authentication status with current timestamp
+        const authData = {
+          timestamp: Date.now()
+        };
+        localStorage.setItem("isSAMLLogin", JSON.stringify(authData));
         setIsAuthenticated(true);
       }
     });
   }, []);
-
-  const apiBaseURL = {
-    staging: "https://stagingapi.mrsziplyneweb.hosts.jhmi.edu",
-    prod: "https://api.mrmpzipweb01.hosts.jhmi.edu"
-  }
-
-  console.log(isAuthenticated);
 
   const popupCenter = ({ url, title, w, h }) => {
     // Fixes dual-screen position                             Most browsers      Firefox
@@ -70,7 +93,7 @@ export const Auth = ({ children }) => {
 
   const checkAuthentication = () => {
     // setIsAuthenticated(true)
-    const signInURL = `${apiBaseURL.staging}/api/v2/saml/login`;
+    const signInURL = `${Config.apiBaseURL}/saml/login`;
     popupCenter({ url: signInURL, title: "Single SignOn", w: 400, h: 400 });
   }
 

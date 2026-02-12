@@ -25,8 +25,23 @@ import sapLogo from "./assets/SAP.png";
 import microsoftLogo from "./assets/microsoft.png";
 import sageLogo from "./assets/sage.png";
 import inforLogo from "./assets/infor.png";
+import Config from "./config";
 
 export default function App() {
+
+  useEffect(() => {  
+    if (document.getElementById("ziplyne-snippet")) {
+      return;
+    }
+    
+    const script = document.createElement('script');
+    script.id = "ziplyne-snippet"
+    script.src = Config.snippetURL;
+    console.log({script});
+    document.head.appendChild(script);
+  }, []);
+
+
   // STEP: Once clicked, show your real website
   return (
     <div className="min-h-screen bg-black text-white">
