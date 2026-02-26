@@ -40,7 +40,6 @@ export default function App() {
     const script = document.createElement('script');
     script.id = "ziplyne-snippet"
     script.src = Config.snippetURL;
-    console.log({ script });
     document.head.appendChild(script);
   }, []);
 
