@@ -4,11 +4,11 @@ export default function CertificationSection() {
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 {/* Left Content */}
                 <div>
-                    <h3 className="text-4xl md:text-5xl font-semibold leading-tight mb-6">
+                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-white mb-6">
                         Get Certified on Ziplyne's Digital Adoption Platform
                     </h3>
 
-                    <p className="text-lg text-gray-400 max-w-xl mb-10">
+                    <p className="text-md text-gray-400 max-w-xl mb-10">
                         The certification will deepen your understanding of the product,
                         enhancing your ability to use the Ziplyne Player, Creator, and
                         Dashboard effectively.
@@ -17,7 +17,7 @@ export default function CertificationSection() {
                     <div className="flex items-center gap-10 flex-wrap">
                         <div>
                             <div className="text-4xl font-semibold">4.5 Hrs</div>
-                            <div className="text-gray-400 text-lg">
+                            <div className="text-gray-400 text-md">
                                 Course Completion Time
                             </div>
                         </div>
@@ -38,9 +38,9 @@ export default function CertificationSection() {
                     <div className="absolute -inset-4 bg-gradient-to-br from-[#7B5CFF]/30 to-transparent blur-2xl rounded-3xl" />
 
                     <img
-                        src="/src/assets/cert.png"
+                        src="https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/670e4fd596de6ca581e76444_Zipster%20Certificate.png"
                         alt="Ziplyne Certification"
-                        className="relative w-full max-w-xl rounded-2xl shadow-[0_25px_80px_rgba(123,92,255,0.35)]"
+                        className="relative w-full max-w-xl rounded-2xl"
                         loading="lazy"
                     />
                 </div>

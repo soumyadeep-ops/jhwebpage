@@ -14,7 +14,7 @@ export const Auth = ({ children }) => {
       const { timestamp } = JSON.parse(authDataString);
       const now = Date.now();
       const twoHoursInMs = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
-      
+
       // Check if authentication is still valid (within 2 hours)
       return now - timestamp >= twoHoursInMs;
     } catch (error) {
@@ -40,7 +40,7 @@ export const Auth = ({ children }) => {
     window.addEventListener("message", (event) => {
       const response = event.data;
       if (response.zipaction.action === "authentication") {
-        console.log({response});
+        console.log({ response });
         // Store authentication status with current timestamp
         const authData = {
           timestamp: Date.now()
@@ -92,9 +92,9 @@ export const Auth = ({ children }) => {
   };
 
   const checkAuthentication = () => {
-    // setIsAuthenticated(true)
-    const signInURL = `${Config.apiBaseURL}/saml/login`;
-    popupCenter({ url: signInURL, title: "Single SignOn", w: 400, h: 400 });
+    setIsAuthenticated(true)
+    // const signInURL = `${Config.apiBaseURL}/saml/login`;
+    // popupCenter({ url: signInURL, title: "Single SignOn", w: 400, h: 400 });
   }
 
   return (

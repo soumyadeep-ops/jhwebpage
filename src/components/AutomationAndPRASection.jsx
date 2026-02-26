@@ -9,9 +9,9 @@ export default function AutomationAndPRASection() {
                     {/* Left Image */}
                     <div className="relative flex justify-center">
                         <img
-                            src="/src/assets/TA.png"
+                            src="https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/68a5d67cea83664d397daccd_Group%201000002349-p-1080.png"
                             alt="Test Automation"
-                            className="w-full max-w-xl rounded-2xl shadow-[0_20px_60px_rgba(123,92,255,0.25)]"
+                            className="w-full max-w-xl rounded-2xl"
                             loading="lazy"
                         />
                     </div>
@@ -107,9 +107,9 @@ export default function AutomationAndPRASection() {
                     {/* Right Image */}
                     <div className="relative flex justify-center">
                         <img
-                            src="/src/assets/PRA.png"
+                            src="https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/68a462cf9047192ed0830445_PRA%20hero-p-1080.png"
                             alt="Process Recorder Automation"
-                            className="w-full max-w-xl rounded-2xl shadow-[0_20px_60px_rgba(123,92,255,0.25)]"
+                            className="w-full max-w-xl rounded-2xl"
                             loading="lazy"
                         />
                     </div>

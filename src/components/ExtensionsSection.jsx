@@ -12,11 +12,18 @@ const linkBase =
     "inline-flex items-center gap-2 bg-white text-black font-semibold text-sm px-5 py-3 rounded-lg no-underline transition hover:opacity-90";
 
 function ExtensionCard({ title, desc, href, cta }) {
+    const isMail = href.startsWith("mailto:");
+
     return (
         <div className={cardBase}>
             <h3 className="text-lg font-semibold mb-2">{title}</h3>
             <p className="text-white/70 text-sm leading-6 mb-6">{desc}</p>
-            <a href={href} target="_blank" rel="noreferrer" className={linkBase}>
+
+            <a
+                href={href}
+                {...(!isMail && { target: "_blank", rel: "noreferrer" })}
+                className={linkBase}
+            >
                 {cta} <span aria-hidden>→</span>
             </a>
         </div>
@@ -26,14 +33,40 @@ function ExtensionCard({ title, desc, href, cta }) {
 export default function ExtensionsSection() {
     const [tab, setTab] = useState("staging");
 
-    const data = useMemo(
-        () => ({
+    const toEmail = "ziplyne_support@lists.jh.edu";
+    const ccEmail = "";
+
+    const generateMailto = (environment) => {
+        const subject = `Request for Ziplyne Creator Access - Johns Hopkins (${environment})`;
+
+        const body = `
+Hi Team,
+
+I would like to request access to Ziplyne Creator for Johns Hopkins.
+
+Environment: ${environment}
+
+Full Name:
+Department:
+System/Application:
+Business Justification:
+
+Thank you.
+`;
+
+        return `mailto:${toEmail}?cc=${ccEmail}&subject=${encodeURIComponent(
+            subject
+        )}&body=${encodeURIComponent(body)}`;
+    };
+
+    const data = useMemo(() => {
+        return {
             staging: [
                 {
                     title: "Johns Hopkins Staging Creator",
                     desc: "Create and test your in-app Zips safely in the staging environment before deployment.",
-                    href: "https://chromewebstore.google.com/detail/ziplyne-jh-staging-creato/dpcjihdeiilacnagdoplphghajdhegjc",
-                    cta: "Install Creator",
+                    href: generateMailto("Staging"),
+                    cta: "Request Creator Access",
                 },
                 {
                     title: "Johns Hopkins Staging Player",
@@ -46,8 +79,8 @@ export default function ExtensionsSection() {
                 {
                     title: "Johns Hopkins Production Creator",
                     desc: "Publish finalized Zips in the production environment to make them live for enterprise users.",
-                    href: "https://chromewebstore.google.com/detail/ziplyne-jh-production-cre/iolklpfjcbghlmaojgdcdjagkebcmkag",
-                    cta: "Install Creator",
+                    href: generateMailto("Production"),
+                    cta: "Request Creator Access",
                 },
                 {
                     title: "Johns Hopkins Production Player",
@@ -56,25 +89,23 @@ export default function ExtensionsSection() {
                     cta: "Install Player",
                 },
             ],
-        }),
-        []
-    );
+        };
+    }, []); // safe because generateMailto does not depend on state
 
     return (
         <section className="bg-black text-white py-24">
             <div className="max-w-6xl mx-auto px-6">
-                {/* Header */}
+
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-[42px] md:leading-tight font-bold mb-3">
+                    <h2 className="text-3xl md:text-4xl font-semibold mb-4">
                         Ziplyne Extensions for Johns Hopkins
                     </h2>
-                    <p className="text-white/70 text-base md:text-[17px] leading-7 max-w-2xl mx-auto">
+                    <p className="text-gray-400 mb-16">
                         Access official Johns Hopkins Ziplyne Creator and Player extensions
                         for both environments.
                     </p>
                 </div>
 
-                {/* Tabs */}
                 <div className="flex justify-center gap-4 flex-wrap mt-10 mb-10">
                     <button
                         type="button"
@@ -94,12 +125,12 @@ export default function ExtensionsSection() {
                     </button>
                 </div>
 
-                {/* Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                     {data[tab].map((item) => (
                         <ExtensionCard key={item.title} {...item} />
                     ))}
                 </div>
+
             </div>
         </section>
     );

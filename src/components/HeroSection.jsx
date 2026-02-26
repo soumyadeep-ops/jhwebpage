@@ -1,5 +1,5 @@
-import heroBg from "../assets/hero bg.png";
-import heroImg from "../assets/JH Hero.png";
+const heroBg = "https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/6841a148d5116463b41beb52_hero%20bg.png";
+const heroImg = "https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/670e4399f2bf80bf01cfc386_JH%20Hero.png"
 
 export default function HeroSection() {
     return (
@@ -25,7 +25,7 @@ export default function HeroSection() {
                         <span className="block">Your Digital Guide and Automation Partner</span>
                     </h1>
 
-                    <p className="mt-6 text-base md:text-lg text-white/80 leading-relaxed">
+                    <p className="text-base md:text-[17px] text-white/70 leading-7 mt-6">
                         Ziplyne is here to make your daily work easier at Johns Hopkins.
                         Whether you're navigating a complex system for the first time,
                         automating routine tasks, or streamlining key processes, Ziplyne
@@ -35,6 +35,8 @@ export default function HeroSection() {
                     <div className="mt-8 flex justify-center">
                         <a
                             href="https://calendly.com/sales-ziplyne/ziplyne-demo-discovery"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="px-8 py-3 rounded-md font-semibold border border-white bg-gradient-to-r from-[#7B5CFF] to-[#9E5CFF] shadow-xl hover:opacity-90 transition"
                         >
                             Explore Ziplyne Features

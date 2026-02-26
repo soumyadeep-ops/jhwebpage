@@ -1,7 +1,7 @@
 import React from "react";
-import ziplyneLogo from "../assets/Ziplyne logo.png";
-import jhlogo from "../assets/Johns Hopkins logo.png";
-import heroBg from "../assets/hero bg.png";
+const ziplyneLogo = "https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/684863ffe012f12d9abec88b_Ziplyne%20Logo%20Fulll.png";
+const jhlogo = "https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/68c422b44618514b5faa3c88_Ziplyne%20%20Coupa%20-%20PRA%20%20DAP%20%20RPA%202.png";
+const heroBg = "https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/6841a148d5116463b41beb52_hero%20bg.png";
 import "./SignInPage.css";
 
 export default function SignInPage({ onSignIn }) {

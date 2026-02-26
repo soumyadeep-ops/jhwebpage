@@ -86,11 +86,11 @@ export default function TeamsSection() {
     return (
         <section className="bg-black text-white py-20 md:py-24">
             <div className="max-w-6xl mx-auto px-6">
-                <h2 className="text-center text-3xl md:text-[42px] font-semibold tracking-tight">
+                <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-center tracking-tight">
                     Built for Every Team Across Your Organization
                 </h2>
 
-                <p className="text-center text-base md:text-lg text-white/70 max-w-2xl mx-auto mt-4 mb-12 md:mb-16">
+                <p className="text-center text-base md:text-md text-white/70 max-w-2xl mx-auto mt-4 mb-12 md:mb-16">
                     From IT to HR to Procurement — Ziplyne empowers each department to
                     simplify, automate, and accelerate work.
                 </p>

@@ -14,7 +14,7 @@ export default function ZipsterCommunitySection() {
                     Join the Zipster Community
                 </h2>
 
-                <p className="mt-6 text-base md:text-lg leading-relaxed text-white/65 max-w-3xl mx-auto">
+                <p className="mt-6 text-base md:text-md leading-relaxed text-white/65 max-w-3xl mx-auto">
                     Become part of the Ziplyne community to connect with peers, share insights,
                     and gain exclusive access to knowledge, resources, and events — all focused
                     on accelerating digital adoption and automation.

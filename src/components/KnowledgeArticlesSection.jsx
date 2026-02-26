@@ -1,6 +1,6 @@
-import guideAutoplayImg from "../assets/Guide autoplay.png";
-import rteImg from "../assets/RTE.png";
-import rolesImg from "../assets/Roles.png";
+const guideAutoplayImg = "https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/670e403dc600780bf69c1d06_Frame-1000006092-1.png";
+const rteImg = "https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/670e403dc600780bf69c1d11_Frame-1000006047-1.png";
+const rolesImg = "https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/670e403dc600780bf69c1d32_role-1.png"
 
 const articles = [
     {
@@ -22,15 +22,14 @@ export default function KnowledgeArticlesSection() {
         <section className="bg-black text-white py-16 sm:py-20">
             <div className="mx-auto max-w-7xl px-6">
                 {/* Header */}
-                <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.25fr_0.75fr] lg:items-start">
-                    <h2 className="text-[40px] leading-[1.05] tracking-tight font-semibold text-white sm:text-[48px] lg:text-[56px]">
+                <div className="text-center max-w-4xl lg:max-w-5xl mx-auto space-y-8">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight font-semibold text-white">
                         Accelerate User Onboarding <br />
-                        &amp; Support with Knowledge <br />
-                        Articles
+                        &amp; Support with Knowledge Articles
                     </h2>
 
-                    <p className="max-w-md text-[15px] leading-relaxed text-white/70 sm:text-[16px] lg:pt-2">
-                        Empower Users to quickly find solutions and resolve issues with our
+                    <p className="text-base sm:text-md text-white/70 leading-relaxed">
+                        Empower users to quickly find solutions and resolve issues with our
                         comprehensive Knowledge Articles.
                     </p>
                 </div>

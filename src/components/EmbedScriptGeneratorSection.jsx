@@ -109,7 +109,7 @@ document.head.appendChild(script);`,
     return (
         <section className="bg-[#0b0b0b] text-white py-20 md:py-24">
             <div className="max-w-6xl mx-auto px-6">
-                <h2 className="text-center text-2xl md:text-[28px] font-semibold mb-10 md:mb-12">
+                <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center">
                     Embed Script Generator
                 </h2>
 

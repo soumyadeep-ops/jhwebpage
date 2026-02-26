@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import SignInPage from "./components/SignInPage";
 import HeroSection from "./components/HeroSection";
+import UnderstandingDAPSection from "./components/UnderstandingDAPSection";
+import UnderstandingDAPSectionnew from "./components/UnderstandingDAPSectionnew";
+import InfiniteLogoScrollSection from "./components/InfiniteLogoScrollSection";
 import AlumniSection from "./components/AlumniSection";
 import ImpactSection from "./components/ImpactSection";
 import ExtensionsSection from "./components/ExtensionsSection";
@@ -16,7 +19,7 @@ import Footer from "./components/Footer";
 
 
 // Logo assets
-import ziplyneLogo from "./assets/Ziplyne logo.png";
+const ziplyneLogo = "https://cdn.prod.website-files.com/62be01edf05ea84ad41b6b9b/684863ffe012f12d9abec88b_Ziplyne%20Logo%20Fulll.png";
 import coupaLogo from "./assets/coupa.png";
 import workdayLogo from "./assets/workday.png";
 import oracleLogo from "./assets/oracle.png";
@@ -29,15 +32,15 @@ import Config from "./config";
 
 export default function App() {
 
-  useEffect(() => {  
+  useEffect(() => {
     if (document.getElementById("ziplyne-snippet")) {
       return;
     }
-    
+
     const script = document.createElement('script');
     script.id = "ziplyne-snippet"
     script.src = Config.snippetURL;
-    console.log({script});
+    console.log({ script });
     document.head.appendChild(script);
   }, []);
 
@@ -53,7 +56,10 @@ export default function App() {
           <HeroSection />
         </section>
 
-        <UnderstandingDAPSection />
+        {/* <UnderstandingDAPSection /> */}
+        <UnderstandingDAPSectionnew />
+        <InfiniteLogoScrollSection />
+
         <AlumniSection />
         <ImpactSection />
 
@@ -120,6 +126,8 @@ function Navbar() {
 
         <a
           href="https://calendly.com/sales-ziplyne/ziplyne-demo-discovery"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden md:inline-flex px-5 py-2.5 rounded-md font-medium border border-white bg-gradient-to-r from-[#7B5CFF] to-[#9E5CFF] shadow-lg hover:opacity-90"
         >
           Get Demo
@@ -160,145 +168,6 @@ function NavLink({ label, link }) {
     </a>
   );
 }
-
-/* ---------------- HERO ---------------- */
-
-function Hero() {
-  return (
-    <section
-      className="relative overflow-hidden"
-      style={{
-        backgroundImage: `url(${heroBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="absolute inset-0 bg-black/50" />
-
-      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-20">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-semibold leading-tight tracking-tight">
-            Ziplyne at Johns Hopkins
-            <span className="block">Your Digital Guide and Automation Partner</span>
-          </h1>
-
-          <p className="mt-6 text-base md:text-lg text-white/80 leading-relaxed">
-            Ziplyne is here to make your daily work easier at Johns Hopkins.
-            Whether you're navigating a complex system for the first time,
-            automating routine tasks, or streamlining key processes, Ziplyne
-            helps you do it with confidence and speed.
-          </p>
-
-          <div className="mt-8 flex justify-center">
-            <a
-              href="#dap"
-              className="px-8 py-3 rounded-md font-semibold border border-white bg-gradient-to-r from-[#7B5CFF] to-[#9E5CFF] shadow-xl hover:opacity-90"
-            >
-              Explore Ziplyne Features
-            </a>
-          </div>
-        </div>
-
-        <div className="mt-12 flex justify-center">
-          <div className="relative w-full max-w-5xl">
-            <div className="absolute -inset-10 blur-2xl bg-gradient-to-r from-violet-500/25 to-fuchsia-500/10 rounded-[32px] -z-10" />
-            <img
-              src={heroImg}
-              alt="Ziplyne at Johns Hopkins"
-              className="relative z-10 w-full h-auto rounded-2xl"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- DAP SECTION ---------------- */
-
-function UnderstandingDAPSection() {
-  const chips = [
-    "In-app Guidance",
-    "Interactive Walkthroughs",
-    "Contextual Help",
-    "Personalized Training",
-    "Increased Productivity",
-    "Reduced Onboarding Time",
-  ];
-
-  const logos = [
-    inforLogo,
-    sageLogo,
-    microsoftLogo,
-    sapLogo,
-    coupaLogo,
-    oracleLogo,
-    workdayLogo,
-    servicenowLogo,
-  ];
-
-  return (
-    <section
-      id="dap"
-      className="relative py-16 md:py-24 bg-gradient-to-b from-[#7B5CFF] via-[#6A54FF] to-[#5A4BFF]"
-    >
-      <div className="absolute -top-32 left-1/2 h-72 w-[42rem] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
-
-      <div className="relative max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-          Understanding Digital Adoption Platforms (DAP)
-        </h2>
-
-        <p className="mt-4 text-lg text-white/90">
-          Digital Adoption Platform (DAP) simplifies user experience and
-          enhances technology adoption.
-        </p>
-
-        <p className="mt-4 text-sm md:text-base text-white/80 leading-relaxed max-w-3xl mx-auto">
-          It provides in-app guidance, real-time support, and personalized
-          training to help users navigate digital tools efficiently. DAPs boost
-          productivity, reduce onboarding time, and increase user retention
-          through step-by-step instructions and contextual help.
-        </p>
-
-        {/* Feature pills */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {chips.map((label) => (
-            <div
-              key={label}
-              className="flex items-center gap-5 rounded-2xl border border-white/20 bg-white/10 px-7 py-6 shadow-xl backdrop-blur-md"
-            >
-              <CheckIcon />
-              <span className="text-base md:text-lg font-semibold text-left">
-                {label}
-              </span>
-            </div>
-          ))}
-        </div>
-
-
-        {/* Logos */}
-        {/* Logos */}
-        <div className="mt-14 flex flex-wrap justify-center gap-8">
-          {logos.map((src, i) => (
-            <div
-              key={i}
-              className="h-20 w-20 md:h-20 md:w-20 rounded-full bg-white/10 border border-white/15 backdrop-blur-md flex items-center justify-center shadow-xl"
-            >
-              <img
-                src={src}
-                alt="logo"
-                className="h-14 w-14 md:h-20 md:w-16 object-contain"
-              />
-            </div>
-          ))}
-        </div>
-
-      </div>
-    </section>
-  );
-}
-
 
 /* ---------------- ICONS ---------------- */
 

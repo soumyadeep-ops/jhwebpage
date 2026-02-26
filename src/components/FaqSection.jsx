@@ -11,19 +11,12 @@ const FAQS = [
             <>
                 Access can be requested via the links above. For support contact{" "}
                 <a
-                    href="mailto:Ziplyne_support@lists.johnshopkins.edu"
+                    href="mailto:ziplyne_support@lists.jh.edu"
                     className="underline underline-offset-4 hover:text-white"
                 >
-                    Ziplyne Support
-                </a>{" "}
-                for existing users or{" "}
-                <a
-                    href="mailto:Ziplyne@lists.johnshopkins.edu"
-                    className="underline underline-offset-4 hover:text-white"
-                >
-                    Ziplyne@lists.johnshopkins.edu
-                </a>{" "}
-                for onboarding.
+                    Ziplyne Support.
+                </a>
+
             </>
         ),
     },
